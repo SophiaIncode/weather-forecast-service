@@ -7,14 +7,19 @@ pipeline {
     stages {
         stage("Build Maven"){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SophiaIncode/weather-service-suite']])  
-                bat 'mvn clean install -DskipTests'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SophiaIncode/weather-forecast-service']])  
+                bat 'mvn clean install'
+            }
+        }
+        stage("Junit"){
+            steps{
+                bat 'mvn test'
             }
         }
         stage("Build Docker Image"){
             steps{
                 script{
-                    bat 'docker build -t soophia/weather-forecast-devops .'
+                    bat 'docker build -t soophia/weather-forecast-devops:production .'
                 }
             }
         }
