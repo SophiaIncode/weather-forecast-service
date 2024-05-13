@@ -2,11 +2,13 @@ package com.springrest.test.clientImpl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.RestTemplate;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -24,6 +26,7 @@ import com.springrest.clientImpl.WeatherClientImpl;
 import com.springrest.model.WeatherResponse;
 import com.springrest.secrets.WeatherSecretsConfig;
 
+@ExtendWith(SpringExtension.class)
 public class WeatherClientImplTest {
 	
 	@Mock

@@ -6,9 +6,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -17,6 +20,7 @@ import com.springrest.bean.PredictionData;
 import com.springrest.model.TempData;
 import com.springrest.serviceImpl.SimpleWeatherPredictionStrategy;
 
+@ExtendWith(SpringExtension.class)
 public class SimpleWeatherPredictionStrategyTest {
 	
 	@Mock

@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpClientErrorException.NotFound;
 import org.springframework.web.client.RestTemplate;
@@ -23,7 +24,9 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(SpringExtension.class)
 public class WeatherForecastStepDefinitions {
 
 	private String cityName;
@@ -41,7 +44,6 @@ public class WeatherForecastStepDefinitions {
 
 	public WeatherForecastStepDefinitions() {
 		// Initialize mock objects
-		MockitoAnnotations.initMocks(this);
 		weatherService = Mockito.mock(WeatherService.class); // Initialize the mock
 		weatherForecastController = new WeatherForecastController(weatherService); // Use the mocked service
 	}
