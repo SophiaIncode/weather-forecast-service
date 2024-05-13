@@ -19,7 +19,7 @@ pipeline {
         stage("Build Docker Image"){
             steps{
                 script{
-                    bat 'docker build -t soophia/weather-forecast-devops:production .'
+                    bat 'docker build -t soophia/weather-forecast-devops .'
                 }
             }
         }
