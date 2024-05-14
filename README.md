@@ -2,6 +2,7 @@
 # Weather Forecast Project
 
 Welcome to the Weather Prediction project! This application provides current weather prediction and a next 3-day weather forecast for any city worldwide using the OpenWeatherMap API.
+It is developed in Springboot 2.7xxx with java version 1.8.
 
 
 ##  Table Of Contents
@@ -27,7 +28,7 @@ The Weather Forecast project is a simple and user-friendly application that fetc
 
 This project uses the OpenWeatherMap API to retrieve weather data. Below are the key API endpoints used:
 
-- **OpenWeatherMap Endpoint:**  
+- **Downstream OpenWeatherMap API:**  
   - **HTTP Method:** GET
   - **Endpoint:** `http://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}`
 
@@ -46,6 +47,7 @@ You must have docker desktop installed and docker hub account to run this applic
 Official links for reference:
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - [Docker Hub](https://hub.docker.com/)
+
 ## Architectural Design Used
 
 ## SOLID Principles
@@ -158,7 +160,7 @@ For example, our Jenkinsfile includes stages for:
 
 - **Jenkins:** Make sure Jenkins is installed and running on your system.
 - **JDK 11:** Ensure JDK 11 is installed.
-- Setup the jenkins on **9090** port by changing the file httpPort given in folder structure
+- Setup the jenkins on port **9090** by changing jenkins.xml file **httpPort** given in folder structure.
 
 ### Jenkins Configuration
 
