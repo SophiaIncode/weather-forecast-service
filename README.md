@@ -274,20 +274,24 @@ Please note the docker image is build specifically for Windows.
     ```
     docker swarm init
     ```
+    ``` if it says it exist run the command - "docker swarm leave --force" and then initialize the swarm again```
  - **Create Secret Key:**
     ```
     echo original_key | docker secret create Api-Key -
     ```
+    ``` if key is present, run command "docker secret rm key-name" and create a new key in your local.```
  - **Create Docker Secret Service:**
 
      ```
     docker service create --name forecast-service --secret Api-Key -e MY_API_KEY=/run/secrets/Api-Key -p 8080:8093 soophia/weather-forecast-devops:latest
     ```
+    ```Check service exist by running "docker service ls", run command "docker service rm service-name" to remove the service.``` 
 
  - **Swagger URL**
    ```
     http://localhost:8080/swagger-ui/index.html#/weather-forecast-controller/
    ```
+   ```change the port 8080 if service won't up. Before that need to remove the existing service and create service again with new port```
 
 
 
