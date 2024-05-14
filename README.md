@@ -221,52 +221,7 @@ For example, our Jenkinsfile includes stages for:
 
    Click **Apply** and **Save**.
 
-## Jenkins Pipeline Script Example
 
-Below is an example of a Jenkinsfile that includes setting up Docker credentials:
-
-```groovy
-pipeline {
-    agent any
-
-    environment {
-        DOCKER_CREDENTIALS_ID = 'docker_password'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/your-repo/your-project.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Docker Build and Push') {
-            steps {
-                withCredentials([string(credentialsId: DOCKER_CREDENTIALS_ID, variable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u your-username -p $DOCKER_PASSWORD'
-                    sh 'docker build -t your-image-name .'
-                    sh 'docker push your-image-name'
-                }
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build and push succeeded!'
-        }
-        failure {
-            echo 'Build or push failed!'
-        }
-    }
-}
-```
 ## Docker Configuration
 
 The Dockerfile is used to build Docker images for the application. It specifies the environment and dependencies required to run the application within a Docker container. It typically includes instructions for copying application code into the image, installing dependencies, and exposing ports.
